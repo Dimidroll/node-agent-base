@@ -1,6 +1,6 @@
 {
-  "name": "agent-base",
-  "version": "6.0.2",
+  "name": "agent-base-keepalive",
+  "version": "6.0.3",
   "description": "Turn a function into an `http.Agent` instance",
   "main": "dist/src/index",
   "typings": "dist/src/index",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/TooTallNate/node-agent-base.git"
+    "url": "git://github.com/Dimidroll/node-agent-base.git"
   },
   "keywords": [
     "http",
@@ -30,7 +30,7 @@
   "author": "Nathan Rajlich <nathan@tootallnate.net> (http://n8.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TooTallNate/node-agent-base/issues"
+    "url": "https://github.com/Dimidroll/node-agent-base/issues"
   },
   "dependencies": {
     "debug": "4"
@@ -60,5 +60,9 @@
   },
   "engines": {
     "node": ">= 6.0.0"
+  },
+  "homepage": "https://github.com/Dimidroll/node-agent-base#readme",
+  "directories": {
+    "test": "test"
   }
 }

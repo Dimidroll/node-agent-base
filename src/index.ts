@@ -79,6 +79,7 @@ namespace createAgent {
 
 	export type AgentOptions = {
 		timeout?: number;
+		keepAlive?: boolean|undefined;
 	};
 
 	/**
@@ -128,13 +129,13 @@ namespace createAgent {
 
 			// These aren't actually used by `agent-base`, but are required
 			// for the TypeScript definition files in `@types/node` :/
-			this.maxFreeSockets = 1;
-			this.maxSockets = 1;
+			this.maxFreeSockets = 256;
+			this.maxSockets = Infinity;
 			this.maxTotalSockets = Infinity;
 			this.sockets = {};
 			this.freeSockets = {};
 			this.requests = {};
-			this.options = {};
+			this.options = { keepAlive: opts && opts.keepAlive ? opts.keepAlive : false };
 		}
 
 		get defaultPort(): number {
@@ -224,8 +225,8 @@ namespace createAgent {
 
 			// Hint to use "Connection: close"
 			// XXX: non-documented `http` module API :(
-			req._last = true;
-			req.shouldKeepAlive = false;
+			// req._last = true;
+			// req.shouldKeepAlive = false;
 
 			let timedOut = false;
 			let timeoutId: ReturnType<typeof setTimeout> | null = null;
