@@ -1,6 +1,6 @@
 {
   "name": "agent-base-keepalive",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "description": "Turn a function into an `http.Agent` instance",
   "main": "dist/src/index",
   "typings": "dist/src/index",
