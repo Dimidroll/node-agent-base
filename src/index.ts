@@ -80,6 +80,7 @@ namespace createAgent {
 	export type AgentOptions = {
 		timeout?: number;
 		keepAlive?: boolean|undefined;
+		keepAliveMsecs?: number | undefined;
 	};
 
 	/**
@@ -129,13 +130,14 @@ namespace createAgent {
 
 			// These aren't actually used by `agent-base`, but are required
 			// for the TypeScript definition files in `@types/node` :/
+			// this.keepAlive = true
 			this.maxFreeSockets = 256;
 			this.maxSockets = Infinity;
 			this.maxTotalSockets = Infinity;
 			this.sockets = {};
 			this.freeSockets = {};
 			this.requests = {};
-			this.options = { keepAlive: opts && opts.keepAlive ? opts.keepAlive : false };
+			this.options = { keepAlive: opts && opts.keepAlive ? opts.keepAlive : false, keepAliveMsecs: opts && opts.keepAliveMsecs ? opts.keepAliveMsecs : 1000 };
 		}
 
 		get defaultPort(): number {
